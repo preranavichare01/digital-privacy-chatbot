@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Privacy Chatbot</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Digital Privacy Chatbot</h1>
+        <p class="subheading">Ask anything about digital privacy, laws, data rights, and more.</p>
+
+        <form method="post" action="/ask" class="chat-form">
+            <input type="text" name="prompt" placeholder="Ask a question about digital privacy..." required>
+            <button type="submit">Ask</button>
+        </form>
+
+        {% if response %}
+        <div class="chat-box">
+            <div class="chat user"><strong>You:</strong> {{ prompt }}</div>
+            <div class="chat ai"><strong>AI:</strong> {{ response['answer'] }}</div>
+        </div>
+        {% endif %}
+
+        <footer>
+            <p>Powered by Groq LLMs · Secure · Private</p>
+        </footer>
+    </div>
+</body>
+</html>
